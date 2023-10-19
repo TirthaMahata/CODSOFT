@@ -1,0 +1,40 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class guess
+{
+    public static void main(String[] args)
+    {
+        Random ran = new Random();
+        int myNumber=ran.nextInt(100)+1;
+
+        for(int i=0; i<5; i++)
+        {
+            Scanner sc2 = new Scanner(System.in);
+            System.out.println("Enter your guess(0-100): ");
+            int yourGuess = sc2.nextInt();
+
+            if(yourGuess <= -1 || yourGuess > 100)
+            {
+                System.out.println("Error!");
+            }
+            else if(yourGuess == myNumber)
+            {
+                System.out.println("Yes! Your guess is correct.");
+                break;
+            }
+            else if(yourGuess < myNumber)
+            {
+                System.out.println("No! Your guess is low. Try again.");
+            }
+            else {
+                System.out.println("No! Your guess is high. Try again.");
+            }
+            if(i == 4)
+            {
+                System.out.println();
+                System.out.println("Nope! The correct number is " + myNumber + ".");
+            }
+        }
+    }
+}
